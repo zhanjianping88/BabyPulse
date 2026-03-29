@@ -1243,6 +1243,9 @@ private struct PaywallScreen: View {
 
     let feature: PremiumFeature
 
+    private let privacyPolicyURL = URL(string: "https://zhanjianping88.github.io/BabyPulse/privacy-policy.html")!
+    private let termsOfUseURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+
     private let allFeatures: [PremiumFeature] = [
         .unlimitedHistory,
         .advancedStats,
@@ -1286,14 +1289,17 @@ private struct PaywallScreen: View {
                     }
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Weekly Plan")
+                        Text("AUTO-RENEWING SUBSCRIPTION")
                             .font(.system(size: 11, weight: .bold, design: .rounded))
                             .foregroundStyle(Color.pulseMuted)
                             .tracking(1.3)
+                        Text("BabyPulse Pro Premium Weekly")
+                            .font(.system(size: 22, weight: .bold, design: .rounded))
+                            .foregroundStyle(.white)
                         Text("\(entitlementStore.weeklyPriceText) / week")
                             .font(.system(size: 36, weight: .heavy, design: .rounded))
                             .foregroundStyle(.white)
-                        Text("Best for proactive reminders and richer insight during the newborn stage.")
+                        Text("1-week subscription with automatic renewal. Best for proactive reminders and richer insight during the newborn stage.")
                             .font(.system(size: 14, weight: .medium, design: .rounded))
                             .foregroundStyle(Color.white.opacity(0.72))
                     }
@@ -1326,6 +1332,22 @@ private struct PaywallScreen: View {
                     .font(.system(size: 14, weight: .bold, design: .rounded))
                     .foregroundStyle(Color.white.opacity(0.72))
                     .disabled(entitlementStore.isBusy)
+
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Payment will be charged to your Apple Account at confirmation of purchase. Subscription renews automatically unless canceled at least 24 hours before the end of the current period. You can manage or cancel your subscription in your App Store account settings.")
+                            .font(.system(size: 12, weight: .medium, design: .rounded))
+                            .foregroundStyle(Color.white.opacity(0.58))
+
+                        HStack(spacing: 16) {
+                            Link("Privacy Policy", destination: privacyPolicyURL)
+                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                .foregroundStyle(Color.pulseAccent)
+
+                            Link("Terms of Use", destination: termsOfUseURL)
+                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                .foregroundStyle(Color.pulseAccent)
+                        }
+                    }
                 }
                 .padding(20)
             }
