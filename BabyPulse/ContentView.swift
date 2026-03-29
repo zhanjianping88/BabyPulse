@@ -1244,7 +1244,7 @@ private struct PaywallScreen: View {
     let feature: PremiumFeature
 
     private let privacyPolicyURL = URL(string: "https://zhanjianping88.github.io/BabyPulse/privacy-policy.html")!
-    private let termsOfUseURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
+    private let termsOfUseURL = URL(string: "https://www.apple.com/legal/macapps/dev/stdeula/")!
 
     private let allFeatures: [PremiumFeature] = [
         .unlimitedHistory,
